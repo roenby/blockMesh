@@ -10,17 +10,14 @@ function RodsandStructurePentagonCore(caseDir)
 if nargin < 1
     caseDir = pwd;
 end
+
+%Making case file structure and copying generating m-files to case directory
 toolboxDir = ['..' filesep '..' filesep 'meshingTools'];
 copyfile(toolboxDir,[caseDir filesep 'private'])
-copyfile([caseDir filesep 'private' filesep 'case'],caseDir)
+meshDir = makeCaseDir(caseDir);
 
-fid = fopen([caseDir filesep mfilename '.foam'],'w');
-fclose(fid);
-
-meshDir = [caseDir filesep 'constant' filesep 'polyMesh'];
-
-compress = 1;
-writePrec = 12;
+compress = 1; %1 to compress output files 
+writePrec = 12; %Write precision in output files
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

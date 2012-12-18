@@ -1,8 +1,8 @@
 function TriaxialTestWithPentagonCore(caseDir)
 
-% Generating mesh for triaxial soil test.
+% Generating mesh for triaxial soil test, i.e. simply a cylindrical volume.
 %
-% The core of the structure is filled with a pentagon.
+% The core is filled with a pentagon.
 %
 % Johan Roenby, DHI Water & Environment
 
@@ -10,13 +10,10 @@ if nargin < 1
     caseDir = pwd;
 end
 
-%Making case structure and copying generating m-files to case directory
+%Making case file structure and copying generating m-files to case directory
 toolboxDir = ['..' filesep '..' filesep 'meshingTools'];
 copyfile(toolboxDir,[caseDir filesep 'private'])
-copyfile([caseDir filesep 'private' filesep 'case'],caseDir)
-fid = fopen([caseDir filesep mfilename '.foam'],'w');
-fclose(fid);
-meshDir = [caseDir filesep 'constant' filesep 'polyMesh'];
+meshDir = makeCaseDir(caseDir);
 
 compress = 0; %1 to compress output files 
 writePrec = 12; %Write precision in output files
@@ -75,5 +72,4 @@ b.points = fac*b.points;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Writing to OpenFOAM polyMesh files
-
 writePolyMesh(b,meshDir,writePrec,compress)
