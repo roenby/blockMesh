@@ -2,6 +2,8 @@ function meshDir = makeCaseDir(caseDir)
 
 %Generating OpenFOAM case directory structure for paraview to be able to
 %read the generated mesh (open the generated .foam file in paraview)
+%
+%Johan Roenby, DHI Water & Envirnment
 
 if exist(caseDir)~=7 
     mkdir(caseDir);

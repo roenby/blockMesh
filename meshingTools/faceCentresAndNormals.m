@@ -1,5 +1,9 @@
 function [Cf,Sf] = faceCentresAndNormals(p,f)
 
+%[Cf,Sf] = faceCentresAndNormals(p,f) for a given point list and face list
+%calculates the face centre Cf and face normal Sf the way it is done in the
+%OpenFOAM source code.
+
 %Initial guess of face centres
 x = zeros(size(f,1),3);
 for k = 1:size(f,2)

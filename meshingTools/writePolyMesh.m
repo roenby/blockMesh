@@ -2,6 +2,10 @@ function writePolyMesh(b,polyMeshDir,prec,compress)
 
 %Write block mesh structure to polyMesh files: points, faces, owner,
 %neighbour, and boundary.
+%
+%Note: Unfortunately this becomes rather slow for large meshes.
+%
+%Johan Roenby, DHI Water & Environment
 
 if nargin < 2
     polyMeshDir = [pwd '\constant\polyMesh'];

@@ -1,5 +1,11 @@
 function [x,y] = smoothedBlock(l1,l2,l3,l4,tol)
 
+%[x,y] = smoothedBlock(l1,l2,l3,l4,tol) generates a 2d mesh spanned by the
+%four lines l1-l4, comprising respectively the left, right, bottom and top
+%sides of the mesh. The internal grid points are smoothly distributed.
+%
+%Johan Roenby, DHI Water & Environment
+
 nx = length(l1);
 ny = length(l3);
 x = [l1(:,1); l2(:,1); l3(:,1); l4(:,1)];

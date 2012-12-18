@@ -1,7 +1,9 @@
 function L = lineSegment(p1,p2,s)
 
-% If length(s) > 1 it is interpreted as the points from p1 to p2.
-% Else s = number of bins, so number of points will be one more
+%L = lineSegment(p1,p2,s) generates an array L of points along the line
+%from the point p1 to the point p2. If length(s) > 1 it is interpreted as 
+%the points from p1 to p2. Else s = number of bins, so number of points 
+%will be one more
 
 p1 = p1(:)';
 p2 = p2(:)';

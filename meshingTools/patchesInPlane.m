@@ -1,5 +1,12 @@
 function ind = patchesInPlane(b,x,n,prec)
 
+%ind = patchesInPlane(b,x,n,prec) returns the indices ind of the boundary 
+%patches in the block b that lie in the plane defined by the point x and
+%the normal vector n. A point is regarded as lying in the plane if its
+%distance to the plane is less than prec.
+%
+%Johan Roenby, DHI Water & Environment
+
 P = b.points;
 bf1 = b.boundary.startFace(1);
 bi = [bf1:b.nFaces];

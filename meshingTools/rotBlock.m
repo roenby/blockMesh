@@ -1,5 +1,10 @@
 function b = rotBlock(b,v)
 
+%b = rotBlock(b,v) rotates the points in the block b around the vector v.
+%The number of radians that the points are rotated equals norm(v).
+%
+%Johan Roenby, DHI Water & Environment
+
 P = b.points;
 nComp = size(P,2);
 th = norm(v);
@@ -9,7 +14,7 @@ abse2 = sqrt(sum(e2.^2,2));
 
 %Sorting out points that are parallel to v;
 ind1 = find(abse2 ~= 0);
-ind2 = find(abse2 == 0);
+%ind2 = find(abse2 == 0); %Outcommented as it might not be used
 Pnew = P(ind1,:);
 e1 = e1(ind1,:);
 e2 = e2(ind1,:);

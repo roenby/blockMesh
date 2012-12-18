@@ -1,4 +1,15 @@
-function b = pentagonInCircle(nth,nr2,r1,r2,z,prec)
+function b = pentagonInCircle(nth,nr2,r1,r2,z)
+
+%b = pentagonInCircle(nth,nr2,r1,r2,z,prec) defines a cylindrical mesh
+%where the outer rim is circular and the core is made up of a pentagon
+%consisting of 5 quadrilaterals connected at the centre of the cylinder.
+%There will be 10*nth cells around the perimeter of the cylinder.
+%There will be nr2 radial points in the outer, non-pentagonal part of the
+%cylinder. The cylinder will have radius r2 and the side length of the
+%inner polygon will be r1. The vertical "floors" of the cylinder are
+%defined in the array z.
+%
+%Johan Roenby, DHI Water & Environment
 
 if nargin < 1
     close all
@@ -7,8 +18,8 @@ if nargin < 1
     r1 = 1;
     r2 = 2;
     z = [0 1];
-    prec = 1e-6;
 end
+prec = 1e-6;
 
 pc = r1*exp(2*pi*1i*(0:4)/5);
 p = zeros(length(pc),2);

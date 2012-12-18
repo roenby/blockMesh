@@ -1,5 +1,13 @@
 function b = smoothedPentagonBlock(p1,p2,p3,p4,p5,n,z,prec)
 
+%b = smoothedPentagonBlock(p1,p2,p3,p4,p5,n,z,prec) generates a pentagonal
+%block with corners at the points p1-p5. There will be 2*n cells along each
+%side of the pentagon. The vertical "floors" of the pentagon block are
+%specified in the array z. Two points are regarded as equal if they are
+%within a distance of prec to each other.
+%
+%Johan Roenby, DHI Water & Environment
+
 %Center point in pentagon
 p0 = faceCentre([p1; p2; p3; p4; p5]);
 %Middle points of sides of pentagon

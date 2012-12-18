@@ -1,6 +1,12 @@
 function [x,y] = smoothedPatch(p1,p2,p3,p4,nx,ny,tol)
 
-%p1-p4 should traverse the square in the counterclockwise direction
+%[x,y] = smoothedPatch(p1,p2,p3,p4,nx,ny,tol) generates a 2d mesh between
+%the 4 points p1-p4, which should traverse the square in the 
+%counterclockwise direction. There will be nx cells or bins on hte line 
+%from p1 to p2 and from p3 to p4. There will be ny points from p2 to p3 and
+%from p4 to p1. The inner points are smoothely distributed.
+%
+%Johan Roenby, DHI Water & Environment
 
 l1 = lineSegment(p1,p2,nx); 
 l2 = lineSegment(p2,p3,ny); 

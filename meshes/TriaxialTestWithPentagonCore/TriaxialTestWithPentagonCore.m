@@ -45,7 +45,7 @@ fac = 1e-3; %mm -> m
 
 %Constructing mesh
 z = z1 + (z2-z1)*[0:nz]/nz;
-b = pentagonInCircle(nth/10,nr2,r1,r2,z,prec);
+b = pentagonInCircle(nth/10,nr2,r1,r2,z);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

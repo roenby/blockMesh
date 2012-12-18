@@ -1,5 +1,12 @@
 function b = mergeBlocks(b1,b2,prec)
 
+%b = mergeBlocks(b1,b2,prec) generates a new block b from the two blocks b1
+%and b2 by merging any common faces of these two blocks. Grid points are
+%regarded as identical if they are within a radius of prec of each other.
+%
+%Johan Roenby, DHI Water & Environment
+
+%Defining shorter names for variables
 nif1 = b1.nInternalFaces;
 nif2 = b2.nInternalFaces;
 nf1 = b1.nFaces;

@@ -1,5 +1,11 @@
 function b = mergePatches(b,ind,patchName,patchType)
 
+%b = mergePatches(b,ind,patchName,patchType) merges the patches with
+%indices ind in the block b and gives the resulting patch the name
+%patchName and type patchType
+%
+%Johan Roenby, DHI Water & Environment
+
 bf1 = b.boundary.startFace(1);
 bi = [bf1:b.nFaces];
 F = b.faces(bi,:);

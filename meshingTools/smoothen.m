@@ -1,5 +1,12 @@
 function [x,y] = smoothen(x,y,tol)
 
+%[x,y] = smoothen(x,y,tol) smoothens the positions of all non-boundary 
+%points of the mesh (x,y). In the resulting mesh the coordinates of an 
+%internal point will be the average of the nearest neighbour points to
+%within the specified tolerance tol.
+%
+%Johan Roenby, DHI Water & Environment
+
 err = 2*tol;
 while err > tol
     xold = x;
