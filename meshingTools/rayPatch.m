@@ -1,5 +1,13 @@
 function [x,y] = rayPatch(L1,L2,s,a)
 
+%[x,y] = rayPatch(L1,L2,s,a) generates a 2D mesh of lines going between the
+%points in the lines L1 and L2, which should be of equal length. If s is an
+%integer there will be s bins between L1 and L2. An optional grading "a" on
+%the lines between points on L1 and L2 may be specified (no grading by
+%default).
+%
+%Johan Roenby, DHI Water & Environment
+
 if nargin < 4
     a = 1;
 end

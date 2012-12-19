@@ -8,16 +8,17 @@ function [F,Ci] = cells2Faces(C)
 %in a row are the indices in the point list of the points defining the
 %face. By convention, the six faces of a cell are made up of the points 
 %with indices:
-% I = [ [1 5 8 4]
-%       [2 3 7 6]
+% 
+% I = [ [4 3 2 1]
+%       [5 6 7 8]
 %       [1 2 6 5]
 %       [3 4 8 7]
-%       [4 3 2 1]
-%       [5 6 7 8] ];
-
+%       [1 5 8 4]
+%       [2 3 7 6] ];
+% 
 %The second output, Ci, is a list of length 6*Ncells such that the n'th
 %element is the index of the cell to which the face belongs. 
-%In OpenFOAM speak te face F(n,:) has cell Ci(n) as owner, and therefore 
+%In OpenFOAM speak the face F(n,:) has cell Ci(n) as owner, and therefore 
 %the normal defined by the face orientation points out of the cell
 %
 %Johan Roenby, DHI Water & Environment
@@ -28,7 +29,6 @@ I = [ [4 3 2 1]
       [3 4 8 7]
       [1 5 8 4]
       [2 3 7 6] ];
-
   
 %Calculating faces from cells
 nf = size(I,1); %Number of faces per cell

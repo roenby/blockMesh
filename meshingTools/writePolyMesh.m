@@ -3,7 +3,8 @@ function writePolyMesh(b,polyMeshDir,prec,compress)
 %Write block mesh structure to polyMesh files: points, faces, owner,
 %neighbour, and boundary.
 %
-%Note: Unfortunately this becomes rather slow for large meshes.
+%Note: Unfortunately this becomes rather slow for large meshes. Tried to
+%improve by writting in chunks, but no luck.
 %
 %Johan Roenby, DHI Water & Environment
 

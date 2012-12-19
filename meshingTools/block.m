@@ -21,9 +21,9 @@ function b = block(nx,ny,nz)
 % Johan Roenby, DHI Water & Environment
 
 if nargin < 1
-    nx = 5;
-    ny = 7;
-    nz = 6;
+    nx = 20;
+    ny = 20;
+    nz = 1;
 end
 
 %Changing to new convention that input to this function is the number of 

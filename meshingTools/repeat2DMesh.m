@@ -10,7 +10,8 @@ for n = 1:nz;
     Y3D(:,:,n) = Y;
     Z3D(:,:,n) = z(n)*ones(size(X));
 end
-b = block(nx,ny,nz);
+b = block(nx-1,ny-1,nz-1);
+%b = block(nx,ny,nz);
 b.points = [X3D(:) Y3D(:) Z3D(:)];
 b.boundary.patchName = {'left' 'right' 'front' 'back' 'bottom' 'top'};
 b.boundary.patchType = {'patch' 'patch' 'patch' 'patch' 'patch' 'patch'};

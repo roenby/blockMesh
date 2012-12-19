@@ -100,12 +100,12 @@ for n = 1:3
 end
 
 %Inner core
-b2 = pentagonInCircle(nth/10,nr2,r1,r2,z,prec);
+b2 = pentagonInCircle(nth/10,nr2,r1,r2,z);
 b = mergeBlocks(b,b2,prec);
 
 %Cone
-nz = sum(z >= zs(3) & z <= zs(4));
-b2 = wedgeBlock(nz,nth/2+1,prec);
+nz = sum(z >= zs(3) & z <= zs(4))-1;
+b2 = wedgeBlock(nz,nth/2);
 b2 = rotBlock(b2,[0 pi 0]);
 b2.points(:,1) = b2.points(:,1)-min(b2.points(:,1));
 b2.points(:,2) = b2.points(:,2)-min(b2.points(:,2));
@@ -123,8 +123,8 @@ b3 = mergeBlocks(b2,rotBlock(b2,[0 0 pi]),prec);
 b = mergeBlocks(b,b3,prec);
 
 %Upper cylinder rim
-nz2 = sum(z >= zs(4) & z <= zs(5));
-b2 = unitBlock(nz,nth/2+1,nz2);
+nz2 = sum(z >= zs(4) & z <= zs(5)) - 1;
+b2 = unitBlock(nz,nth/2,nz2);
 R = b2.points(:,1);
 TH = b2.points(:,2);
 Z = b2.points(:,3);
@@ -152,7 +152,7 @@ for n = 1:length(patchInd)
     end
 end
 ind = find(ind);
-b = mergePatches(b,ind,'theRest','patch');
+b = mergePatches(b,ind,'sides','patch');
 
 %Rescaling and printing mesh
 b.points = fac*b.points;
