@@ -1,0 +1,3 @@
+blockMesh
+=========
+Matlab toolbox for generating block structured hex meshes in the polyMesh file format of OpenFOAM.
