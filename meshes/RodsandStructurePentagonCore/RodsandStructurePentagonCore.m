@@ -1,4 +1,4 @@
-function RodsandStructurePentagonCore(caseDir)
+function RodsandStructurePentagonCore(caseDir,toolboxDir)
 
 %Generating structural block mesh for gravity based foundation of the type 
 %installed at the Rodsand 2 offshore farm.
@@ -10,11 +10,14 @@ function RodsandStructurePentagonCore(caseDir)
 if nargin < 1
     caseDir = pwd;
 end
+if nargin < 2
+    toolboxDir = ['..' filesep '..' filesep 'meshingTools'];
+end
 
 %Making case file structure and copying generating m-files to case directory
-toolboxDir = ['..' filesep '..' filesep 'meshingTools'];
-copyfile(toolboxDir,[caseDir filesep 'private'])
-meshDir = makeCaseDir(caseDir);
+meshDir = makeCaseDir(caseDir,toolboxDir);
+%Copy generating code to case dir
+copyGeneratingCode(meshDir,toolboxDir,mfilename('fullpath'));
 
 compress = 1; %1 to compress output files 
 writePrec = 12; %Write precision in output files
@@ -50,7 +53,7 @@ end
 nth = 10*8;
 
 %Inner core parameters
-nr2 = 8; %Number of radial bins of non-pentagon parts
+nr2 = 6; %Number of radial bins of non-pentagon parts
 r2 = d2/2; %Core radius
 r1 = .75*r2; %Pentagon radius
 
@@ -91,7 +94,7 @@ L2b = lineSegment(p5,p6,nth2);
 L2c = lineSegment(p6,p4,nth1);
 L2 = [L2a; L2b(2:end,:); L2c(2:end,:)];
 n3 = round(norm(L1(1,:)-L2(1,:))/ds);
-[x,y] = rayPatch(L1,L2,n3,1.1);
+[x,y] = rayPatch(L1,L2,n3,1.05);
 b = repeat2DMesh(x,y,z(z <= zs(2)));
 b2 = b;
 for n = 1:3

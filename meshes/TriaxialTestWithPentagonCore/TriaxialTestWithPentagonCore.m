@@ -1,4 +1,4 @@
-function TriaxialTestWithPentagonCore(caseDir)
+function TriaxialTestWithPentagonCore(caseDir,toolboxDir)
 
 % Generating mesh for triaxial soil test, i.e. simply a cylindrical volume.
 %
@@ -9,11 +9,14 @@ function TriaxialTestWithPentagonCore(caseDir)
 if nargin < 1
     caseDir = pwd;
 end
+if nargin < 2
+    toolboxDir = ['..' filesep '..' filesep 'meshingTools'];
+end
 
 %Making case file structure and copying generating m-files to case directory
-toolboxDir = ['..' filesep '..' filesep 'meshingTools'];
-copyfile(toolboxDir,[caseDir filesep 'private'])
-meshDir = makeCaseDir(caseDir);
+meshDir = makeCaseDir(caseDir,toolboxDir);
+%Copy generating code to case dir
+copyGeneratingCode(meshDir,toolboxDir,mfilename('fullpath'));
 
 compress = 0; %1 to compress output files 
 writePrec = 12; %Write precision in output files

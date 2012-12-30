@@ -1,4 +1,4 @@
-function meshDir = makeCaseDir(caseDir)
+function meshDir = makeCaseDir(caseDir,toolboxDir)
 
 %Generating OpenFOAM case directory structure for paraview to be able to
 %read the generated mesh (open the generated .foam file in paraview)
@@ -19,7 +19,7 @@ if exist([caseDir filesep '0']) ~= 7
     mkdir(caseDir,'0')
 end
 if exist([caseDir filesep 'system']) ~= 7
-    copyfile([caseDir filesep 'private' filesep 'case' filesep 'system'],[caseDir filesep 'system'])
+    copyfile([toolboxDir filesep 'case' filesep 'system'],[caseDir filesep 'system'])
 end
 ind = strfind(caseDir,filesep);
 caseName = caseDir(ind(end)+1:end);

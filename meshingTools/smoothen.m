@@ -21,8 +21,10 @@ while err > tol
         y(2:end-1,1:end-2) + y(2:end-1,3:end)...
         )/4;
     err = max(hypot(x(:)-xold(:),y(:)-yold(:)));
-%     plot(x,y,'r.')
+%     plot(x,y,'.-')
 %     axis equal
+%     hold on
+%     plot(x',y','.-')
 %     drawnow
 %     hold off
 end
