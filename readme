@@ -1,3 +1,12 @@
 blockMesh
 =========
 Matlab toolbox for generating block structured hex meshes in the polyMesh file format of OpenFOAM.
+
+The "Core" of the code is block.m which generates a structure containing the information required 
+to write the OpenFOAM polyMesh files. 
+
+The file mergeBlocks.m takes such two block structures and merges them into a single structure.
+
+The file writePolyMesh.m writes the OpenFOAM files points, faces, owner, neighbour and boundary.
+
+The folder "meshes" contains examples of uses of the different tools in the "meshingTools" folder.
